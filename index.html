@@ -80,9 +80,12 @@
         <input type="text" id="text-input" placeholder="Type text or paste URL here...">
         <button class="btn" onclick="generateQR()">Generate QR Code</button>
 
-        <div class="result">
+        <        <div class="result">
             <div id="qrcode"></div>
+            <br>
+            <button id="download-btn" class="btn" style="margin-top: 15px; display: none; background-color: #27ae60;" onclick="downloadQR()">Download QR Code</button>
         </div>
+
     </div>
 
     <!-- SEO Content -->
@@ -91,15 +94,15 @@
     <p>Welcome to our free online QR code generator tool. If you want to <b>create QR code for website URL, text, UPI payment, or business card</b>, this tool lets you do it instantly. Just type your text or paste your link, click generate, and download your high-quality QR code for free.</p>
 </div>
 
-
-    <script>
-        function generateQR() {
+            function generateQR() {
             const qrContainer = document.getElementById("qrcode");
-            qrContainer.innerHTML = ""; // Purana QR clear karne ke liye
+            qrContainer.innerHTML = ""; 
             const textValue = document.getElementById("text-input").value;
+            const downloadBtn = document.getElementById("download-btn");
 
             if (textValue.trim() === "") {
                 alert("Please enter text or a URL first!");
+                downloadBtn.style.display = "none";
                 return;
             }
 
@@ -111,8 +114,29 @@
                 colorLight: "#ffffff",
                 correctLevel: QRCode.CorrectLevel.H
             });
+
+            setTimeout(() => {
+                const img = qrContainer.querySelector("img");
+                if (img) {
+                    downloadBtn.style.display = "inline-block";
+                }
+            }, 200);
         }
-    </script>
+
+        function downloadQR() {
+            const qrContainer = document.getElementById("qrcode");
+            const img = qrContainer.querySelector("img");
+            if (img) {
+                const imageUrl = img.src;
+                const link = document.createElement("a");
+                link.href = imageUrl;
+                link.download = "qrcode.png";
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
+        }
+
 
 </body>
 </html>
