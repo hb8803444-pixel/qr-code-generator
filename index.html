@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta name="google-site-verification" content="99lQwJ7oiggAkIQwyCH3ETALjHMl0dBipfRlVfEkBBc" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Free Online QR Code Generator</title>
     <meta name="description" content="Generate free QR codes instantly for websites, text, and UPI payments online. Easy to use and download.">
-    <!-- Yahan apna Adsterra banner/social bar code baad mein paste kar sakte hain -->
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -80,21 +78,21 @@
         <input type="text" id="text-input" placeholder="Type text or paste URL here...">
         <button class="btn" onclick="generateQR()">Generate QR Code</button>
 
-        <        <div class="result">
+        <div class="result">
             <div id="qrcode"></div>
             <br>
             <button id="download-btn" class="btn" style="margin-top: 15px; display: none; background-color: #27ae60;" onclick="downloadQR()">Download QR Code</button>
         </div>
-
     </div>
 
     <!-- SEO Content -->
-    <<div style="max-width: 600px; margin: 30px auto; color: #555; font-size: 14px; line-height: 1.6; text-align: left; padding: 0 10px;">
-    <h3>About Free QR Code Generator</h3>
-    <p>Welcome to our free online QR code generator tool. If you want to <b>create QR code for website URL, text, UPI payment, or business card</b>, this tool lets you do it instantly. Just type your text or paste your link, click generate, and download your high-quality QR code for free.</p>
-</div>
+    <div style="max-width: 600px; margin: 30px auto; color: #555; font-size: 14px; line-height: 1.6; text-align: left; padding: 0 10px;">
+        <h3>About Free QR Code Generator</h3>
+        <p>Welcome to our free online QR code generator tool. If you want to <b>create QR code for website URL, text, UPI payment, or business card</b>, this tool lets you do it instantly. Just type your text or paste your link, click generate, and download your high-quality QR code for free.</p>
+    </div>
 
-            function generateQR() {
+    <script>
+        function generateQR() {
             const qrContainer = document.getElementById("qrcode");
             qrContainer.innerHTML = ""; 
             const textValue = document.getElementById("text-input").value;
@@ -136,7 +134,7 @@
                 document.body.removeChild(link);
             }
         }
-
+    </script>
 
 </body>
 </html>
