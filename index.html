@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Online QR Code Generator</title>
+    <meta name="description" content="Generate free QR codes instantly for websites, text, and UPI payments online. Easy to use and download.">
+    <!-- Yahan apna Adsterra banner/social bar code baad mein paste kar sakte hain -->
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #2c3a50;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #666;
+            margin-bottom: 25px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            outline: none;
+        }
+        input[type="text"]:focus {
+            border-color: #3498db;
+        }
+        .btn {
+            background-color: #3498db;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        .result {
+            margin-top: 25px;
+        }
+        #qrcode {
+            margin-top: 20px;
+            display: inline-block;
+        }
+    </style>
+    <!-- QR Code Generator Library from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>QR Code Generator</h1>
+        <p>Enter text or URL to generate your QR code instantly</p>
+        
+        <input type="text" id="text-input" placeholder="Type text or paste URL here...">
+        <button class="btn" onclick="generateQR()">Generate QR Code</button>
+
+        <div class="result">
+            <div id="qrcode"></div>
+        </div>
+    </div>
+
+    <!-- SEO Content -->
+    <div style="max-width: 600px; margin: 30px auto; color: #555; font-size: 14px; line-height: 1.6; text-align: left; padding: 0 10px;">
+        <h3>About Free QR Code Generator</h3>
+        <p>Welcome to our free online QR code generator tool. You can easily create custom QR codes for website URLs, text messages, contact details, and online payments. Just type your text, click generate, and download your high-quality QR code instantly.</p>
+    </div>
+
+    <script>
+        function generateQR() {
+            const qrContainer = document.getElementById("qrcode");
+            qrContainer.innerHTML = ""; // Purana QR clear karne ke liye
+            const textValue = document.getElementById("text-input").value;
+
+            if (textValue.trim() === "") {
+                alert("Please enter text or a URL first!");
+                return;
+            }
+
+            new QRCode(qrContainer, {
+                text: textValue,
+                width: 200,
+                height: 200,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        }
+    </script>
+
+</body>
+</html>
